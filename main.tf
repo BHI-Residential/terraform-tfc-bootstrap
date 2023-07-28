@@ -26,7 +26,7 @@ resource "tfe_organization" "primary_org" {
 }
 
 module "workspaces" {
-  source   = "git::https://github.com/GlueOps/terraform-multi-environment-workspace.git?ref=v0.1.1"
+  source   = "git::https://github.com/BHI-Residential/terraform-multi-environment-workspace.git?ref=v1.0.0"
   for_each = { for ws in local.env_data : "${ws.workspace}-${ws.env}" => ws }
 
   tf_cloud_workspace_name       = each.key
